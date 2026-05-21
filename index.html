@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nga Bombat te Riviera Shqiptare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1208;
+      --deep: #2c1a0a;
+      --gold: #c8860a;
+      --gold-light: #e8a82a;
+      --cream: #fdf6e8;
+      --cream-mid: #f5ead0;
+      --sky: #daeef8;
+      --sea: #1e7fa8;
+      --sea-dark: #0d5c7a;
+      --rule: #b8a07a;
+      --text: #1e150a;
+      --subtext: #4a3520;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream-mid);
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--cream);
+      border-bottom: 3px solid var(--ink);
+      text-align: center;
+      padding: 18px 24px 12px;
+      position: relative;
+    }
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 10.5px;
+      letter-spacing: .06em;
+      color: var(--subtext);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .masthead-top span { flex: 1; }
+    .masthead-top span:nth-child(2) { text-align: center; }
+    .masthead-top span:last-child { text-align: right; }
+
+    .paper-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 8vw, 72px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .paper-name span { color: var(--gold); }
+    .paper-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--subtext);
+      margin-top: 6px;
+      letter-spacing: .04em;
+    }
+    .rule-double {
+      margin: 10px 0 0;
+      border: none;
+      border-top: 4px double var(--rule);
+    }
+
+    /* ── TICKER / BREAKING ── */
+    .breaking-bar {
+      background: var(--sea-dark);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      display: flex;
+      algin-items: center;
+      overflow: hidden;
+      position: relative;
+      border-bottom: 1px solid var(--rule);
+    }
+    .breaking-label {
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+      padding: 2px 10px;
+      white-space: nowrap;
+      position: relative;
+      z-index: 2;
+      box-shadow: 10px 0 15px var(--sea-dark);
+    }
+    .breaking-text {
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+      animation: ticker 22s linear infinite;
+      padding-left: 15px;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-60%); }
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .newspaper {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--cream);
+      padding: 28px 30px 40px;
+    }
+
+    /* ── ARTICLE HEADER ── */
+    .article-header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--sea-dark);
+      border-left: 3px solid var(--sea);
+      padding-left: 8px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 46px);
+      font-weight: 900;
+      line-height: 1.12;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .headline em {
+      font-style: italic;
+      color: var(--sea-dark);
+    }
+    .deck {
+      font-family: 'Source Serif 4', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--subtext);
+      line-height: 1.6;
+      max-width: 680px;
+    }
+    .byline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: .06em;
+      color: var(--subtext);
+      text-transform: uppercase;
+    }
+
+    /* ── HERO IMAGE ── */
+    .hero-image {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      border: 2px solid var(--rule);
+      margin-bottom: 8px;
+    }
+    .hero-caption {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11.5px;
+      font-style: italic;
+      color: var(--subtext);
+      text-align: center;
+      margin-bottom: 22px;
+      padding: 0 4px;
+    }
+
+    /* ── COLUMNS ── */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+      margin-bottom: 26px;
+    }
+    .col {
+      padding: 0 18px;
+      border-right: 1px solid var(--rule);
+    }
+    .col:first-child { padding-left: 0; }
+    .col:last-child  { padding-right: 0; border-right: none; }
+
+    .col p {
+      font-family: 'Source Serif 4', serif;
+      font-size: 14.5px;
+      line-height: 1.72;
+      color: var(--text);
+      margin-bottom: 14px;
+      text-align: justify;
+      hyphens: auto;
+    }
+    .col p:first-child::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 900;
+      float: left;
+      line-height: 0.82;
+      margin: 5px 6px -2px 0;
+      color: var(--gold);
+    }
+
+    /* ── PULL QUOTE  ── */
+    .pull-quote {
+      margin: 24px 0;
+      padding: 18px 24px;
+      border-top: 3px solid var(--sea-dark);
+      border-bottom: 3px solid var(--sea-dark);
+      text-align: center;
+    }
+    .pull-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--sea-dark);
+      line-height: 1.4;
+    }
+    .pull-quote cite {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--subtext);
+      margin-top: 8px;
+    }
+
+    /* ── SIDEBAR / STATS BOX ── */
+    .stats-box {
+      background: var(--sky);
+      border: 2px solid var(--sea);
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+    .stats-box h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--sea-dark);
+      border-bottom: 1px solid var(--sea);
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .stats-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .stats-box li {
+      font-family: 'Source Serif 4', serif;
+      font-size: 13px;
+      color: var(--deep);
+      padding: 5px 0;
+      border-bottom: 1px dotted #9ac4d8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .stats-box li span {
+      text-align: left;
+    }
+    .stats-box li strong {
+      color: var(--sea-dark);
+      font-weight: 700;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* ── SECOND IMAGE ── */
+    .mid-image-wrap {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+    .mid-image-container {
+      width: 55%;
+      flex-shrink: 0;
+    }
+    .mid-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border: 2px solid var(--rule);
+    }
+    .mid-image-text {
+      flex: 1;
+    }
+    .mid-image-text p {
+      font-family: 'Source Serif 4', serif;
+      font-size: 14.5px;
+      line-height: 1.72;
+      color: var(--text);
+      text-align: justify;
+      margin-bottom: 12px;
+    }
+    .mid-caption {
+      font-family: 'Source Serif 4', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--subtext);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── BOTTOM FOOTER ── */
+    .paper-footer {
+      border-top: 3px double var(--rule);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--subtext);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .columns { grid-template-columns: 1fr; }
+      .col { padding: 0 0 16px; border-right: none; border-bottom: 1px solid var(--rule); }
+      .col:last-child { border-bottom: none; }
+      .mid-image-wrap { flex-direction: column; }
+      .mid-image-container { width: 100%; }
+      .mid-image { height: 180px; }
+      .newspaper { padding: 16px 14px 30px; }
+      .masthead { padding: 12px 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <span>Nr. 214 · Maj 2026</span>
+    <span>Gazetarë për një ditë</span>
+    <span>Çmimi: 80 lekë</span>
+  </div>
+  <div class="paper-name">Gazetarë <span>për një ditë</span></div>
+  <div class="paper-tagline">E vërteta nga bregu i Shqipërisë</div>
+  <hr class="rule-double" />
+</div>
+
+<div class="breaking-bar">
+  <span class="breaking-label">⚡ Lajmi i fundit</span>
+  <div class="breaking-text">
+    Riviera Shqiptare shënon rekord rezervimesh &nbsp;•&nbsp; Ksamil dhe Saranda me kapacitet të plotë gusht 2026 &nbsp;•&nbsp; Tensionet në Lindjen e Mesme rrisin turizmin ballkanik &nbsp;•&nbsp; Shqipëria "Surpriza e Vitit" sipas Travel Europe Magazine &nbsp;•&nbsp; Riviera Shqiptare shënon rekord rezervimesh
+  </div>
+</div>
+
+<div class="newspaper">
+
+  <div class="article-header">
+    <div class="section-label">Turizëm &amp; Ekonomi</div>
+    <h1 class="headline">
+      Nga bombat te riviera shqiptare —<br/>
+      <em>Lufta në Lindjen e Mesme "shpërthen" turizmin në Shqipëri</em>
+    </h1>
+    <p class="deck">
+      Ndërsa tymi i luftës mbulu­on Lindjen e Mesme, mijëra europianë kthejnë sytë nga brigjet kristal­ine shqiptare. Kjo verë mund të jetë momenti historik që Shqipëria ka pritur.
+    </p>
+    <div class="byline-row">
+      <span>Nga: Redaksia Ekonomike &middot;  Gazetarë për një ditë</span>
+      <span>21 Maj 2026 &middot; Tiranë</span>
+    </div>
+  </div>
+
+  <img
+    class="hero-image"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ksamil%2C_Albania_01.jpg/1280px-Ksamil%2C_Albania_01.jpg"
+    alt="Plazhi i Ksamilit, Riviera Shqiptare"
+    onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80'; this.onerror=null;"
+  />
+  <p class="hero-caption">Plazhi i Ksamilit — uji i tejdukshëm kristal dhe rëra e bardhë po tërheqin rekord turistësh këtë verë 2026. &nbsp;[Foto: Visit Albania]</p>
+
+  <div class="columns">
+
+    <div class="col">
+      <p>
+        Ndërsa tymi i luftës dhe tensionet po mbulojnë Lindjen e Mesme, mijëra turistë europianë po ndryshojnë në minutën e fundit destinacionet e pushimeve dhe sytë tashmë i kanë kthyer nga Shqipëria. Ajo që dikur konsiderohej një thesar i "fshehur" i Mesdheut, këtë verë po kthehet në një nga destinacionet më të kërkuara nga të huajt.
+      </p>
+      <p>
+        Agjencitë turistike raportojnë anullime masive të paketave drejt Egjiptit, Izraelit dhe zonave të tjera të tensionuara, ndërsa kërkesat për pushime në rivierën shqiptare janë rritur ndjesh­më gjatë muajve të fundit.
+      </p>
+    </div>
+
+    <div class="col">
+      <p>
+        Nga ana tjetër, një dyndje e re trendesh online po ndryshon gjithçka. Videot nga plazhet shqiptare po bëjnë xhiron e botës. Pamjet med ujin kristal, muzikë buzë detit dhe restorante tradicionale po tërheqin veçanërisht të rinjtë europianë, të cilët kërkojnë pushime luksoze me kosto më të ulët se në Greqi apo Itali.
+      </p>
+    </div>
+
+    <div class="col">
+      <div class="stats-box">
+        <h3>📊 Numrat e Sezonit</h3>
+        <ul>
+          <li><span>Rritje vizitorësh 2026</span> <strong>+5–10%</strong></li>
+          <li><span>Anullime Egjipt / Izrael</span> <strong>↑ Masive</strong></li>
+          <li><span>Rezervime Ksamil – Gusht</span> <strong>95% Plot</strong></li>
+          <li><span>Krahasim çmimi vs Greqi</span> <strong>–35%</strong></li>
+          <li><span>Videot #Albania TikTok</span> <strong>2.1Mld ♥️</strong></li>
+        </ul>
+      </div>
+      <p>
+        Pritshmëritë për vitin 2026 parashikojnë një rritje prej 5–10% të vizitorëve, një shifër që përputhet me trendin e kontratave të turizmit të organizuar.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>
+      "Shqipëria mund të mos jetë më vetëm 'Surpriza e Ballkanit', por destinacioni që gjithë Europa do ta kërkojë."
+    </blockquote>
+    <cite>— Ekspertë të Turizmit, Maj 2026</cite>
+  </div>
+
+  <div class="mid-image-wrap">
+    <div class="mid-image-container">
+      <img
+        class="mid-image"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Saranda_Albania.jpg/1280px-Saranda_Albania.jpg"
+        alt="Saranda, Albania"
+        onerror="this.src='https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=900&q=80'; this.onerror=null;"
+      />
+      <span class="mid-caption">Saranda dhe gjiri i saj — porta kryesore e Rivierës Shqiptare. &nbsp;[Foto: Albania Tourism]</span>
+    </div>
+    <div class="mid-image-text">
+      <p>
+        Por ndërsa bizneset turistike po festojnë, ekspertët paralajmërojnë se Shqipëria duhet të jetë gati për <strong>"provën më të madhe"</strong>. Trafiku i rënduar, mungesa e parkingut, çmimet që rriten papritur dhe ndotja në disa zona mund të prishin eksperiencën turistike nëse nuk merren masa konkrete dhe të saktë.
+      </p>
+      <p>
+        Shteti dhe bashkitë bregdetare po përballën me sfidën e investimeve në infrastrukturë — rrugë, kanalizime, plazhe publike dhe shërbime digjitale për turistët. Ekspertët kërkojnë koordinim të menjëhershëm ndërmjet sektorit publik dhe atij privat.
+      </p>
+      <p>
+        Nëse kjo verë do të menaxhohet mirë, Shqipëria mund të mos jetë më vetëm <em>"Surpriza e Ballkanit"</em> — por destinacioni që gjithë Europa do të kërkojë ta vizitojë vit pas viti.
+      </p>
+    </div>
+  </div>
+
+  <div class="paper-footer">
+    <span>© 2026 Gazetarë për një ditë · Të Gjitha të Drejtat e Rezervuara</span>
+    <span>Tiranë, Shqipëri</span>
+    <span>www.gazetarepernjedite.al</span>
+  </div>
+
+</div>
+</body>
+</html>
